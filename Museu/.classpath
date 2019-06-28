@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_181">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Downloads/db-derby-10.14.2.0-lib.zip"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derby.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyclient.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_cs.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_de_DE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_es.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_fr.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_hu.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_it.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_ja_JP.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_ko_KR.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_pl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_pt_BR.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_ru.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_zh_CN.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyLocale_zh_TW.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbynet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyoptionaltools.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbyrun.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ThiagoLeite/Workspace/Museu/lib/derbytools.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
