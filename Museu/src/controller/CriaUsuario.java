@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Usuario;
 
-@WebServlet("/CriarUsuario")
+@WebServlet("/criarUsuario")
 public class CriaUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -22,13 +23,13 @@ public class CriaUsuario extends HttpServlet {
 					criarUsuario(request,response);
 					break;
 				default:
-					request.getRequestDispatcher("CriarUsuario").forward(request,response);
+					request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);
 			}
 		}else{
 			request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);
 		}
 	}
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);
 	}
@@ -37,10 +38,9 @@ public class CriaUsuario extends HttpServlet {
 		String nome = (String) request.getParameter("nome");
 		String cpf = (String) request.getParameter("cpf");
 		String password = (String) request.getParameter("password");
-		
 		try {
 			Usuario usuario = new Usuario(nome,cpf,password);
-			if(usuario.cadastraUsuario()) {				
+			if(usuario.cadastraUsuario()) {
 				request.setAttribute("message", "Usuario criado com sucesso!");
 			}
 			request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);	
@@ -49,5 +49,4 @@ public class CriaUsuario extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);
 		}		
 	}
-
 }

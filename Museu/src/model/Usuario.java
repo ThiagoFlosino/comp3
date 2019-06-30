@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 import gateway.UsuarioGateway;
 
 public class Usuario {
@@ -31,6 +33,10 @@ public class Usuario {
 		}
 	}
 	
+	public List<Usuario> listaUsuarios() {
+		UsuarioGateway userDB = new UsuarioGateway();
+		return userDB.listaUsuarios();
+	}
 	
 	private Boolean verificaSenha() {
 		return this.senha.matches("^[a-zA-Z0-9]*");
@@ -56,6 +62,7 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
 	
 	
 

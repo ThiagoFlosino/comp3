@@ -10,12 +10,12 @@
 <%@include file="messagePage.jsp" %>
 
 <body>
-	<form action="CriarCurso" method="post">
-	Nome : <input type="text" name ="nome" value = "">
-	CPF : <input type="text" name ="cpf" value = "">
-	Senha : <input type="password" name ="senha" value=""/>
-	<br>
-	<input type="submit" name="acaoCriar" value="Criar">
+	<form action="criarUsuario" method="post">
+	<br> Nome : <input type="text" name ="nome" value = "">
+	<br> CPF : <input type="text" name ="cpf" value = "">
+	<br> Senha : <input type="password" name ="password" value="">
+
+	<br><input type="submit" name="acaoCriar" value="Criar">
 	<input type="submit" name="acaoCriar" value="Cancelar">
 	</form>
 </body>

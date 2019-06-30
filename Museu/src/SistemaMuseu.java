@@ -7,8 +7,8 @@ import model.Usuario;
 
 public class SistemaMuseu {
 
-//	public static void main(String[] args) {
-//		
+	public static void main(String[] args) throws SQLException {
+		
 //		Connection conn = new DBConnection().getConnection();
 //		try {
 //			conn.createStatement().execute(""
@@ -29,11 +29,12 @@ public class SistemaMuseu {
 //				+"\nCPF: " + rs.getString("CPF")
 //				+"\nSenha: " + rs.getString("SENHA"));
 //			}
-//			conn.close();
 //		} catch (SQLException e) {
 //			e.printStackTrace();
 //		}catch (Exception e) {
 //			System.out.println(e.getMessage());
+//		}finally {
+//			conn.close();
 //		}
-//	}
+	}
 }
