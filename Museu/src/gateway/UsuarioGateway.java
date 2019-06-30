@@ -7,24 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Usuario;
+import model.Visitante;
 
 public class UsuarioGateway {
 	
 	
 	public Usuario findByName(String nome) {
 		String sql = "SELECT NOME, CPF, SENHA FROM USUARIO where NOME = ?";
-		Usuario usuario = null;
+		Visitante usuario = null;
 		try {
 			new DBConnection().criaConexao();
 			PreparedStatement psttm = DBConnection.conexao.prepareStatement(sql);
 			psttm.setString(1, nome);
 			ResultSet rs = psttm.executeQuery();
-			usuario = new Usuario();
-			usuario.setNome(rs.getString("nome"));
-			usuario.setCpf(rs.getString("cpf"));
-			usuario.setSenha(rs.getString("senha"));
+			usuario = new Visitante(rs.getString("nome"), rs.getString("cpf"), rs.getString("senha"));
 			DBConnection.conexao.close();
-			return usuario;
+			return (Usuario) usuario;
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -50,13 +48,14 @@ public class UsuarioGateway {
 	}
 	
 	public Boolean criaUsuario(Usuario user) {
-		String sql = "INSERT INTO USUARIO(NOME, CPF, SENHA) VALUES (?,?,?)";
+		String sql = "INSERT INTO USUARIO(NOME, CPF, SENHA, TIPO) VALUES (?,?,?,?)";
 		try {
 			DBConnection.criaConexao();
 			PreparedStatement psttm = DBConnection.conexao.prepareStatement(sql);
 			psttm.setString(1, user.getNome());
 			psttm.setString(2, user.getCpf());
 			psttm.setString(3, user.getSenha());
+			psttm.setString(4, user.getTipo());
 			Boolean retorno = psttm.execute();
 			DBConnection.conexao.close();
 			return retorno;
@@ -74,7 +73,8 @@ public class UsuarioGateway {
 					+ "(ID INT PRIMARY KEY AUTO_INCREMENT,"
 					+ "NOME VARCHAR(255),"
 					+ "CPF VARCHAR(255),"
-					+ "SENHA VARCHAR(255));");
+					+ "SENHA VARCHAR(255),"
+					+ "TIPO VARCHAR(255));");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,10 +89,7 @@ public class UsuarioGateway {
 			PreparedStatement psttm = DBConnection.conexao.prepareStatement(sql);
 			ResultSet rs = psttm.executeQuery();
 			while(rs.next()) {
-				Usuario usuario = new Usuario();
-				usuario.setNome(rs.getString("nome"));
-				usuario.setCpf(rs.getString("cpf"));
-				usuario.setSenha(rs.getString("senha"));
+				Usuario usuario = new Usuario(rs.getString("nome"), rs.getString("cpf"), rs.getString("senha"), rs.getString("tipo"));
 				usuarios.add(usuario);
 			}
 			DBConnection.conexao.close();

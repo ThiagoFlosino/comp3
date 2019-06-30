@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Usuario;
+import model.Visitante;
 
 @WebServlet("/ListarUsuarios")
 public class ListarUsuarios extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	Visitante visitante = new Visitante();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String acao = (String) request.getParameter("acaoListar");
@@ -29,7 +31,7 @@ public class ListarUsuarios extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Usuario> usuarios = new Usuario().listaUsuarios();
+		List<Usuario> usuarios = visitante.listaUsuarios();
 		request.setAttribute("usuarios", usuarios);
 		request.getRequestDispatcher("WEB-INF/ListarUsuarios.jsp").forward(request,response);
 	}

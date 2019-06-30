@@ -5,15 +5,17 @@ import java.util.List;
 import gateway.UsuarioGateway;
 
 public class Usuario {
-	
+	Long id;
 	String nome;
 	String cpf;
 	String senha;
+	String tipo;
 	
-	public Usuario(String nome, String cpf, String senha) {
+	public Usuario(String nome, String cpf, String senha, String tipo) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.senha = senha;
+		this.tipo = tipo;
 	}
 	
 	public Usuario() {
@@ -63,7 +65,21 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	
-	
+	public String getTipo() {
+		return tipo;
+	}
 
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
 }
