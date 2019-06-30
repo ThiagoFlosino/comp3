@@ -1,12 +1,12 @@
-Fri Jun 28 03:01:06 BRT 2019 : Apache Derby Servidor de Rede - 10.14.2.0 - (1828579) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Fri Jun 28 22:05:09 BRT 2019 : Apache Derby Servidor de Rede - 10.14.2.0 - (1828579) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Fri Jun 28 03:01:06 BRT 2019:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instância a816c00e-016b-9cac-4ede-000000000c7e
-no diretório de banco de dados C:\Users\ThiagoLeite\Workspace\Museu\db\museudb 
+Fri Jun 28 22:05:09 BRT 2019:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instância a816c00e-016b-a0c3-b62e-000000000c7e
+no diretório de banco de dados C:\Users\ThiagoLeite\git\comp3\Museu\db\museudb 
 
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_181-b13
-user.dir=C:\Users\ThiagoLeite\Workspace\Museu
+user.dir=C:\Users\ThiagoLeite\git\comp3\Museu
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0

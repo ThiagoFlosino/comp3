@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import gateway.DBConnection;
@@ -6,19 +7,33 @@ import model.Usuario;
 
 public class SistemaMuseu {
 
-	public static void main(String[] args) {
-//		Usuario teste = new Usuario();
-//		teste.setCpf("14636701763");
-//		teste.setNome("thiago");
-//		teste.setSenha("123456A");
-//		teste.cadastraUsuario();
-		
-		Connection conn = new DBConnection().getConnection();
-		try {
-			System.out.println(conn.createStatement().execute("create SCHEMA museu"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	public static void main(String[] args) {
+//		
+//		Connection conn = new DBConnection().getConnection();
+//		try {
+//			conn.createStatement().execute(""
+//					+ "CREATE TABLE IF NOT EXISTS USUARIO"
+//					+ "(ID INT PRIMARY KEY AUTO_INCREMENT,"
+//					+ "NOME VARCHAR(255),"
+//					+ "CPF VARCHAR(255),"
+//					+ "SENHA VARCHAR(255));");
+//			Usuario user = new Usuario();
+//			user.setNome("Teste exception");
+//			user.setCpf("1231231241412");
+//			user.setSenha("123456");
+//			user.cadastraUsuario();
+//			ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM USUARIO;");
+//			while(rs.next()) {
+//				System.out.println("ID: " + rs.getLong("ID")
+//				+"\nNome: "+rs.getString("NOME")
+//				+"\nCPF: " + rs.getString("CPF")
+//				+"\nSenha: " + rs.getString("SENHA"));
+//			}
+//			conn.close();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//	}
 }

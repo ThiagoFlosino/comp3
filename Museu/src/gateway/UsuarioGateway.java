@@ -46,14 +46,14 @@ public class UsuarioGateway {
 	}
 	
 	public Boolean criaUsuario(Usuario user) {
-		String sql = "Inset into usuario(nome, cpf, senha) values (?,?,?)";
+		String sql = "INSERT INTO USUARIO(NOME, CPF, SENHA) VALUES (?,?,?)";
 		try {
 			psttm = conn.prepareStatement(sql);
 			psttm.setString(1, user.getNome());
 			psttm.setString(2, user.getCpf());
 			psttm.setString(3, user.getSenha());
-			ResultSet rs = psttm.executeQuery();
-			return rs.next();
+			Boolean retorno = psttm.execute();
+			return retorno;
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();

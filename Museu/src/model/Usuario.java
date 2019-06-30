@@ -18,14 +18,14 @@ public class Usuario {
 		// TODO Auto-generated constructor stub
 	}
 
-	public  Boolean cadastraUsuario() {
+	public  Boolean cadastraUsuario() throws Exception {
 		UsuarioGateway userDB = new UsuarioGateway();
 		if(getNome().isEmpty() || getCpf().isEmpty() || getSenha().isEmpty()) {
-			return false;
+			throw new Exception("Os campos Nome, CPF e Senha são obrigatórios");
 		}else if(userDB.cpfExiste(this.cpf)) {
-			return false;
+			throw new Exception("O CPF já existe na base");
 		}else if(!verificaSenha()) {
-			return false;
+			throw new Exception("A Senha precisa ser Alfa-Numérica");
 		}else {
 			return userDB.criaUsuario(this);
 		}
@@ -33,7 +33,7 @@ public class Usuario {
 	
 	
 	private Boolean verificaSenha() {
-		return this.senha.matches("[a-zA-Z0-9]+");
+		return this.senha.matches("^[a-zA-Z0-9]*");
 	}
 	
 	
