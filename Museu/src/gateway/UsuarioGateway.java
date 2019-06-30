@@ -82,7 +82,7 @@ public class UsuarioGateway {
 	}
 
 	public List<Usuario> listaUsuarios() {
-		String sql = "SELECT NOME, CPF, SENHA FROM USUARIO";
+		String sql = "SELECT NOME, CPF, SENHA, TIPO FROM USUARIO";
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 		try {
 			DBConnection.criaConexao();
