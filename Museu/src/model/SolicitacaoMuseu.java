@@ -25,7 +25,7 @@ public class SolicitacaoMuseu {
 		this.Criacao = criacao;
 		this.Estado = estado;
 		this.nomeGestor = nomeGestor;
-		this.CPFGestor = CPFGestor;
+		this.CPFGestor = cpfGestor;
 		this.senhaGestor = senhaGestor;
 		
 	}
@@ -33,7 +33,7 @@ public class SolicitacaoMuseu {
 	public Boolean criaSolicitacao() throws Exception {
 		SolicitacaoGateway solicitacaoDB = new SolicitacaoGateway();
 		if(getNome().isEmpty() || getCidade().isEmpty() || getEstado().isEmpty() ||
-				getCPFGestor().isEmpty() || getCriacao() ==  null || getNomeGestor().isEmpty() ||
+				getCPFGestor().isEmpty() || getNomeGestor().isEmpty() ||
 				getSenhaGestor().isEmpty()) {
 			throw new Exception("Todos os campos devem ser preenchidos");
 		}else {

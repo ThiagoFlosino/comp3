@@ -52,7 +52,7 @@ public class SolicitacaoGateway {
 				PreparedStatement psttm = DBConnection.conexao.prepareStatement(sql);
 				psttm.setString(1, solicitacao.getNome());
 				psttm.setString(2, solicitacao.getCidade());
-				psttm.setDate(3, (Date) solicitacao.getCriacao());
+				psttm.setDate(3, new java.sql.Date(solicitacao.getCriacao().getTime()));
 				psttm.setString(4, solicitacao.getEstado());
 				psttm.setString(5, solicitacao.getNomeGestor());
 				psttm.setString(6, solicitacao.getCPFGestor());
@@ -94,6 +94,7 @@ public class SolicitacaoGateway {
 			try {
 				DBConnection.criaConexao();
 				PreparedStatement psttm = DBConnection.conexao.prepareStatement(sql);
+				psttm.setLong(1, id);
 				ResultSet rs = psttm.executeQuery();
 				SolicitacaoMuseu retorno = new SolicitacaoMuseu();
 				if(rs.next()) {

@@ -26,9 +26,24 @@ public class CriarMuseu extends  HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String acao = (String) request.getParameter("acaoListar");
+		if (acao != null){
+			switch (acao) {
+				case "Criar":
+					criaMuseu(request,response);
+					break;
+				default:
+					request.getRequestDispatcher("WEB-INF/Home.jsp").forward(request,response);
+			}
+		}else{
+			request.getRequestDispatcher("WEB-INF/ListarUsuarios.jsp").forward(request,response);
+		}
+
+	}
+	private void criaMuseu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sessao = request.getSession();
-		if(sessao.getAttribute("Cargo").equals("Gestor")) {
-			Long idSolicitacao = Long.parseLong(request.getParameter("idSolicitação"));
+		if(sessao.getAttribute("Cargo").equals("Admin")) {
+			Long idSolicitacao = Long.parseLong(request.getParameter("idSolicitacao"));
 			SolicitacaoMuseu selecionada = solicitacao.buscaSolicitacao(idSolicitacao);
 			Gestor gestor = new Gestor();
 			gestor.setCpf(selecionada.getCPFGestor());

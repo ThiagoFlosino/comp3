@@ -21,9 +21,10 @@ public class ListarUsuarios extends HttpServlet {
 		String acao = (String) request.getParameter("acaoListar");
 		if (acao != null){
 			switch (acao) {
-				case "criar":
+				case "Criar":
 					request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);
-					break;					
+				default:
+					request.getRequestDispatcher("WEB-INF/Home.jsp").forward(request,response);
 			}
 		}else{
 			request.getRequestDispatcher("WEB-INF/ListarUsuarios.jsp").forward(request,response);

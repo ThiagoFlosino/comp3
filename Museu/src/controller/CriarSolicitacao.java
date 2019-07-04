@@ -34,7 +34,7 @@ public class CriarSolicitacao extends  HttpServlet{
 				}
 					break;
 				default:
-					request.getRequestDispatcher("WEB-INF/home.jsp").forward(request,response);
+					request.getRequestDispatcher("WEB-INF/Home.jsp").forward(request,response);
 			}
 		}else{
 			request.getRequestDispatcher("WEB-INF/SolicitarCriacao.jsp").forward(request,response);

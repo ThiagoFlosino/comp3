@@ -25,7 +25,9 @@ public class ListarMuseu extends HttpServlet {
 			switch (acao) {
 				case "criar":
 					request.getRequestDispatcher("WEB-INF/CriarMuseu.jsp").forward(request,response);
-					break;					
+					break;
+				default:
+					request.getRequestDispatcher("WEB-INF/Home.jsp").forward(request,response);
 			}
 		}else{
 			request.getRequestDispatcher("WEB-INF/ListarMuseu.jsp").forward(request,response);

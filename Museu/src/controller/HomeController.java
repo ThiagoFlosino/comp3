@@ -17,5 +17,36 @@ public class HomeController extends HttpServlet {
 		request.getRequestDispatcher("WEB-INF/Home.jsp").forward(request,response);
 	
 	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String acao = request.getParameter("acao");
+		switch (acao) {
+			case "CadastarUsuario":
+				request.getSession().setAttribute("Tipo", "Visitante");
+				request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);
+				break;
+			case "CadastrarSolicitacao":
+				request.getRequestDispatcher("WEB-INF/SolicitarCriacao.jsp").forward(request,response);
+				break;
+			case "CadastarGestor":
+				request.getSession().setAttribute("Tipo", "Gestor");
+				request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);
+				break;
+			case "CadastarMuseu":
+				request.getRequestDispatcher("WEB-INF/CriarMuseu.jsp").forward(request,response);
+				break;
+			case "Mudar para Admin":
+				request.getSession().setAttribute("Cargo", "Admin");
+				request.getRequestDispatcher("WEB-INF/Home.jsp").forward(request,response);
+				break;
+			case "Mudar para Visitante":
+				request.getSession().setAttribute("Cargo", "Visitante");
+				request.getRequestDispatcher("WEB-INF/Home.jsp").forward(request,response);
+				break;
+			default:
+				request.getRequestDispatcher("WEB-INF/Home.jsp").forward(request,response);
+
+		}
+	
+	}
 
 }

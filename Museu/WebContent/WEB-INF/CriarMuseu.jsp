@@ -52,8 +52,7 @@
 
 	
 	<input type="submit" name ="acaoListar" value = "Criar">
-		<input type="submit" name ="acaoListar" value = "Atualizar">
-		<input type="submit" name ="acaoListar" value = "Ver">
-</form>
+	<input type="submit" name ="acaoListar" value = "Cancelar">
+	</form>
 </body>
 </html>

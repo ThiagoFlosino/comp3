@@ -27,7 +27,7 @@ public class CriaUsuario extends HttpServlet {
 					criarUsuario(request,response);
 					break;
 				default:
-					request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);
+					request.getRequestDispatcher("WEB-INF/Home.jsp").forward(request,response);
 			}
 		}else{
 			request.getRequestDispatcher("WEB-INF/CriarUsuario.jsp").forward(request,response);
@@ -42,20 +42,20 @@ public class CriaUsuario extends HttpServlet {
 		String nome = (String) request.getParameter("nome");
 		String cpf = (String) request.getParameter("cpf");
 		String password = (String) request.getParameter("password");
-		String tipo = request.getParameter("tipo");
+		String tipo = (String) request.getSession().getAttribute("Tipo");
 		String cargo = request.getParameter("cargo");
 		try {
-			if(tipo.equals(Constants.tipoVisitante)) {
-				Visitante usuario = new Visitante(nome,cpf,password);
-				if(usuario.cadastraUsuario()) {
-					request.setAttribute("message", "Usuario criado com sucesso!");
-				}
-			}else if(tipo.equals(Constants.tipoFuncionario) && cargo.equals(Constants.cargoGestor)) {
+			if(tipo.equals(Constants.tipoAdministrador) && cargo.equals(Constants.cargoGestor)) {
 				gestor.setCargo(cargo);
 				gestor.setCpf(cpf);
 				gestor.setNome(nome);
 				gestor.setSenha(password);
 				if(gestor.cadastraUsuario()) {
+					request.setAttribute("message", "Usuario criado com sucesso!");
+				}
+			}else{
+				Visitante usuario = new Visitante(nome,cpf,password);
+				if(usuario.cadastraUsuario()) {
 					request.setAttribute("message", "Usuario criado com sucesso!");
 				}
 			}
