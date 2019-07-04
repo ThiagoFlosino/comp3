@@ -85,7 +85,7 @@ public class UsuarioGateway {
 		String sql = "SELECT NOME, CPF, SENHA, TIPO FROM USUARIO";
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 		try {
-			DBConnection.criaConexao();
+//			DBConnection.criaConexao();
 			PreparedStatement psttm = DBConnection.conexao.prepareStatement(sql);
 			ResultSet rs = psttm.executeQuery();
 			while(rs.next()) {

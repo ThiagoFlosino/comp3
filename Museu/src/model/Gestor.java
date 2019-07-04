@@ -13,9 +13,13 @@ public class Gestor extends Usuario {
 	
 	@Override
 	public Boolean cadastraUsuario() throws Exception {
-		super.cadastraUsuario();
+		Long id = null;
 		FuncionarioGateway userDB = new FuncionarioGateway();
-		Long id = userDB.findIDByCPF(this.cpf);
+		id = userDB.findIDByCPF(this.cpf);
+		if(id == null) {
+			super.cadastraUsuario();
+			id = userDB.findIDByCPF(this.cpf);
+		}
 		return userDB.criaRelacaoFuncioario(id, this.cargo);
 	}
 

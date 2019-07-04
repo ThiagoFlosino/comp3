@@ -30,6 +30,10 @@ public class Museu {
 			return museuDB.criaMuseu(this);
 		}
 	}
+	public List<Museu> listaMuseus(){
+		MuseuGateway museuDB = new MuseuGateway();
+		return museuDB.listaMuseus();
+	}
 	
 
 	public String getNome() {

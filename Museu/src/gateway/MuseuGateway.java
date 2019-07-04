@@ -4,19 +4,43 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import model.Gestor;
 import model.Museu;
 
 public class MuseuGateway {
 
-		public Long findIDByCPF(String cpf) {
-			String sql = "SELECT ID FROM USUARIO where CPF = ?";
+		public List<Museu> listaMuseus() {
+			String sql = "SELECT M.CRIACAO AS CRIACAO_MUSEU,"
+					+ "M.CIDADE AS CIDADE_MUSEU,"
+					+ "M.ESTADO AS ESTADO_MUSEU,"
+					+ "M.NOME AS NOME_MUSEU,"
+					+ "U.NOME AS NOME_USUARIO,"
+					+ "U.CPF,"
+					+ "U.SENHA,"
+					+ "U.TIPO"
+					+ " FROM MUSEU M"
+					+ " LEFT JOIN USUARIO U ON(U.ID = M.ID_GESTOR )";
 			try {
 				DBConnection.criaConexao();
 				PreparedStatement psttm = DBConnection.conexao.prepareStatement(sql);
-				psttm.setString(1, cpf);
 				ResultSet rs = psttm.executeQuery();
-				Long retorno = rs.getLong("ID");
+				List<Museu> retorno = new ArrayList<Museu>();
+				while(rs.next()) {
+					Museu item = new Museu();
+					item.setNome(rs.getString("NOME_MUSEU"));
+					item.setCidade(rs.getString("CIDADE_MUSEU"));
+					item.setEstado(rs.getString("ESTADO_MUSEU"));
+					item.setCriação(rs.getDate("CRIACAO_MUSEU"));
+					Gestor gestor = new Gestor();
+					gestor.setNome(rs.getString("NOME_USUARIO"));
+					gestor.setTipo(rs.getString("TIPO"));
+					gestor.setSenha(rs.getString("SENHA"));
+					item.setGestor(gestor);
+					retorno.add(item);
+				}
 				DBConnection.conexao.close();
 				return retorno;
 			} catch (SQLException e) {
@@ -48,7 +72,7 @@ public class MuseuGateway {
 		public MuseuGateway() {
 			DBConnection.criaConexao();
 			try {
-				DBConnection.conexao.createStatement().execute(""
+				Boolean retorno = DBConnection.conexao.createStatement().execute(""
 						+ "CREATE TABLE IF NOT EXISTS MUSEU"
 						+ "(ID INT PRIMARY KEY AUTO_INCREMENT,"
 						+ "CRIACAO DATE,"
@@ -57,6 +81,7 @@ public class MuseuGateway {
 						+ "ID_GESTOR NUMBER,"
 						+ "NOME VARCHAR(255)"
 						+ ");");
+				System.out.println("Criado Tabela Museu: " + retorno.toString());
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

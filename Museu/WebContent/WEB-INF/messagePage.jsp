@@ -1,3 +1,4 @@
+<p><b>Cargo:</b>: <%= request.getSession().getAttribute("Cargo")%></p>
 <% if (request.getAttribute("message") != null){ %>
 	<div>
 		<strong><%=request.getAttribute("message") %></strong> 
